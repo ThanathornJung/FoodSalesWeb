@@ -1,0 +1,46 @@
+﻿@model List<FoodSaleViewModel>
+
+<div>
+    <a href="@Url.Action("Create", "FoodSales")" class="btn btn-primary">Create New Food Sale</a>
+</div>
+
+<form method="get" asp-action="Index">
+    <label>Order Date:</label>
+    <input type="date" name="orderDate" />
+
+    <button type="submit">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order Date</th>
+            <th>Region</th>
+            <th>City</th>
+            <th>Category</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrderDate</td>
+                <td>@item.Region</td>
+                <td>@item.City</td>
+                <td>@item.Category</td>
+                <td>@item.Product</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.TotalPrice</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { row = item.Id })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { row = item.Id })" onclick="return confirm('Are you sure?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

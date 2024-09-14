@@ -1,0 +1,39 @@
+﻿@model FoodSaleViewModel
+
+<form asp-action="Create">
+    <div>
+        <label>Order Date:</label>
+        <input type="date" asp-for="OrderDate" />
+    </div>
+    <div>
+        <label>Region:</label>
+        <input type="text" asp-for="Region" />
+    </div>
+    <div>
+        <label>City:</label>
+        <input type="text" asp-for="City" />
+    </div>
+    <div>
+        <label>Category:</label>
+        <input type="text" asp-for="Category" />
+    </div>
+    <div>
+        <label>Product:</label>
+        <input type="text" asp-for="Product" />
+    </div>
+    <div>
+        <label>Quantity:</label>
+        <input type="number" asp-for="Quantity" />
+    </div>
+    <div>
+        <label>Unit Price:</label>
+        <input type="text" asp-for="UnitPrice" />
+    </div>
+    <div>
+        <label>Total Price:</label>
+        <input type="text" asp-for="TotalPrice" />
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+<a href="@Url.Action("Index")">Back to List</a>
